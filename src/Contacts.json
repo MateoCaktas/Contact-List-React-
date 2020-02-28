@@ -1,0 +1,56 @@
+[
+    {
+        "name":"Test Testić",
+        "age":20,
+        "number":12345,
+        "isFavorite": false
+    },
+    {
+        "name":"NotATest NotATestić",
+        "age":25,
+        "number":54321,
+        "isFavorite": false
+    },
+    {
+        "name":"Hmm Hmmić",
+        "age":17,
+        "number":55555,
+        "isFavorite": false
+    },
+    {
+        "name":"YesTest YesATestić",
+        "age":26,
+        "number":33333,
+        "isFavorite": false
+    },
+    {
+        "name":"Netko Novi",
+        "age":15,
+        "number":44444,
+        "isFavorite": false
+    },
+    {
+        "name":"Šesti Šestić",
+        "age":6,
+        "number":66666,
+        "isFavorite": false
+    },
+    {
+        "name":"Sedmi Sedmić",
+        "age":7,
+        "number":77777,
+        "isFavorite": false
+    },
+    {
+        "name":"Osmi Osmić",
+        "age":8,
+        "number":88888,
+        "isFavorite": false
+    },
+    {
+        "name":"Deveti Dević",
+        "age":9,
+        "number":99999,
+        "isFavorite": false
+    }
+]
