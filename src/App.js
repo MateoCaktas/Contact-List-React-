@@ -5,6 +5,9 @@ import ContactsComponent from "./Components/Contacts";
 import Header from "./Components/Header";
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import AddContact from "./Components/AddContact";
+//import SearchBar from "./Components/SearchBar";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +18,7 @@ import {
 export default class App extends React.Component {
   constructor(){
     super();
+  
     this.state = {
       search: ''
     }
@@ -30,22 +34,18 @@ export default class App extends React.Component {
           <Header/>
           <div>
             <nav>
-              <ul style={{display: "flex", flex_direction: "row", justifyContent: 'space-around'}}>
-                <div>
-                  <Link to="/">Home</Link>
-                </div>
+              <ul style={{display: "flex", flex_direction: "row", justifyContent: 'center'}}>
                 <div>
                   <Link to="/allcontacts">All contacts</Link>
                 </div>
                 <div>
                   <Link to="/Favorites">Favorites</Link>
                 </div>
-                <div>
-                  <Link to="/individualContact/:id">Individual Contact</Link>
-                </div>
               </ul>
             </nav>
-
+    
+            <hr id="horizontal-line"/>
+            {/*<SearchBar search={this.state.search}/>*/}
             <input type="text" value={this.state.search} onChange={this.handleChange}></input>
             <div>{this.state.search}</div>
             {/* A <Switch> looks through its children <Route>s and
@@ -60,6 +60,9 @@ export default class App extends React.Component {
               </Route>
               <Route path="/individualContact/:id">
                 <h2>Success!</h2>
+              </Route>
+              <Route path="/addcontact">
+                <AddContact/>
               </Route>
               <Route path="/">
                 <ContactsComponent search={this.state.search} />

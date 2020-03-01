@@ -20,8 +20,7 @@ class Favorites extends React.Component {
         let favoriteContacts = filteredContacts.filter(item => item.isFavorite === true);
 
         return(
-            <div>
-                <h1>This is a test !!!!</h1>
+            <div className="contacts">
                 {
                     favoriteContacts.map(item =>{
                         return <ContactItem className="contact" key={item.number} contact={item}/>
