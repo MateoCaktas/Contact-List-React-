@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import Favorites from "./Favorites";
-import ContactsComponent from "./Contacts";
-import Header from "./Header";
-
+import Favorites from "./Components/Favorites";
+import ContactsComponent from "./Components/Contacts";
+import Header from "./Components/Header";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,79 +13,61 @@ import {
 } from "react-router-dom";
 
 export default class App extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      search: ''
+    }
+  }
+  handleChange = (e) => {
+    this.setState({ search: e.target.value })
+  }
+
   render(){
-  return (
-    <Router>
-      <Header/>
-      <div>
-        <nav>
-          <ul style={{display: "flex", flex_direction: "row", justifyContent: 'space-around'}}>
-            <div>
-              <Link to="/">Home</Link>
-            </div>
-            <div>
-              <Link to="/allcontacts">All contacts</Link>
-            </div>
-            <div>
-              <Link to="/Favorites">Favorites</Link>
-            </div>
-            <div>
-              <Link to="/individualContact">Individual Contact</Link>
-            </div>
-          </ul>
-        </nav>
+    return (
+      <Provider store={store}>
+        <Router>
+          <Header/>
+          <div>
+            <nav>
+              <ul style={{display: "flex", flex_direction: "row", justifyContent: 'space-around'}}>
+                <div>
+                  <Link to="/">Home</Link>
+                </div>
+                <div>
+                  <Link to="/allcontacts">All contacts</Link>
+                </div>
+                <div>
+                  <Link to="/Favorites">Favorites</Link>
+                </div>
+                <div>
+                  <Link to="/individualContact/:id">Individual Contact</Link>
+                </div>
+              </ul>
+            </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+            <input type="text" value={this.state.search} onChange={this.handleChange}></input>
+            <div>{this.state.search}</div>
+            {/* A <Switch> looks through its children <Route>s and
+                renders the first one that matches the current URL. */}
 
-        <Switch>
-          <Route path="/allcontacts">
-            <AllContacts />
-          </Route>
-          <Route path="/Favorites">
-            <Favorites />
-          </Route>
-          <Route path="/individualContact/:id">
-            <h2>Success!</h2>
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
-          }
+            <Switch>
+              <Route path="/allcontacts">
+                <ContactsComponent search={this.state.search}/>
+              </Route>
+              <Route path="/Favorites">
+                <Favorites search={this.state.search}/>
+              </Route>
+              <Route path="/individualContact/:id">
+                <h2>Success!</h2>
+              </Route>
+              <Route path="/">
+                <ContactsComponent search={this.state.search} />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </Provider>
+    );
+  }
 }
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function AllContacts() {
-  return <ContactsComponent/>;
-}
-/*
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-*/
