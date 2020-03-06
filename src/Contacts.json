@@ -1,73 +1,118 @@
 [
     {
-        "firstName":"Test",
-        "lastName":"Testić",
+        "fullName":"Test Testić",
         "age":20,
-        "number":12345,
+        "numbers":[{
+            "home":12345
+            },{
+            "work":1234567
+            }
+        ],
+        "email":"test.testic@gmail.com",
         "isFavorite": true,
         "id":1
     },
     {
-        "firstName":"NotATest",
-        "lastName":"NotATestić",
+        "fullName":"NotATest NotATestić",
         "age":25,
-        "number":54321,
+        "numbers":[{
+            "home":54321
+            },{
+            "work":5432111
+            }
+        ],
+        "email":"notatest.notatestic@gmail.com",
         "isFavorite": true,
         "id":2
     },
     {
-        "firstName":"Hmm",
-        "lastName":"Hmmić",
+        "fullName":"Hmm Hmmić",
         "age":17,
-        "number":55555,
+        "numbers":[{
+            "home":55555
+            },{
+            "work":5555511
+            }
+        ],
+        "email":"hmm.hmmic@gmail.com",
         "isFavorite": false,
         "id":3
     },
     {
-        "firstName":"YesTest",
-        "lastName":"YesATestić",
+        "fullName":"YesTest YesATestić",
         "age":26,
-        "number":33333,
+        "numbers":[{
+            "home":33333
+            },{
+            "work":3333311
+            }
+        ],
+        "email":"yestest.yesatestic@gmail.com",
         "isFavorite": false,
         "id":4
     },
     {
-        "firstName":"Netko",
-        "lastName":"Novi",
+        "fullName":"Netko Novi",
         "age":15,
-        "number":44444,
+        "numbers":[{
+            "home":44444
+            },{
+            "work":4444411
+            }
+        ],
+        "email":"netko.novi@gmail.com",
         "isFavorite": false,
         "id":5
     },
     {
-        "firstName":"Šesti",
-        "lastName":"Šestić",
+        "fullName":"Šesti Šestić",
         "age":6,
-        "number":66666,
+        "numbers":[{
+            "home":666666
+            },{
+            "work":666666111
+            }
+        ],
+        "email":"sesti.sestic@gmail.com",
         "isFavorite": false,
         "id":6
     },
     {
-        "firstName":"Sedmi",
-        "lastName":"Sedmić",
+        "fullName":"Sedmi Sedmić",
         "age":7,
-        "number":77777,
+        "numbers":[{
+            "home":77777
+            },{
+            "work":7777111
+            }
+        ],        
+        "email":"sedmi.sedmic@gmail.com",
         "isFavorite": false,
         "id":7
     },
     {
-        "firstName":"Osmi",
-        "lastName":"Osmić",
+        "fullName":"Osmi Osmić",
         "age":8,
-        "number":88888,
+        "numbers":[{
+            "home":88888
+            },{
+            "work":88888111
+            }
+        ],        
+        "email":"osmi.osmic@gmail.com",
         "isFavorite": false,
         "id":8
     },
     {
-        "firstName":"Deveti",
-        "lastName":"Dević",
+        "fullName":"Deveti Dević",
         "age":9,
-        "number":99999,
+        "numbers":[{
+            "home":999999
+            },{
+            "work":999991111
+            }
+        ],        
+        "email":"deveti.devic@gmail.com",
         "isFavorite": false,
         "id":9
     }

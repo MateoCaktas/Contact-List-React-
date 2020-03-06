@@ -1,4 +1,9 @@
-import { TEST, ADD_CONTACT, DELETE_CONTACT, CHANGE_FAVORITE } from "./types"
+import { 
+    ADD_CONTACT,
+    DELETE_CONTACT,
+    CHANGE_FAVORITE
+} from "./types"
+
 import store from "./store"
 export const addContactAction = (Contact) => (
     store.dispatch({
@@ -13,12 +18,6 @@ export const deleteContactAction = (id) => (
         payload: id
     })
 )
-
-export const TestAction = () => {
-    store.dispatch({
-        type: TEST
-    })
-}
 
 export const changeFavoriteAction = (id) => (
     store.dispatch({

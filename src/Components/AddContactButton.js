@@ -1,35 +1,41 @@
 import React from "react"
 import { addContactAction } from "../redux/actions";
 import { connect } from "react-redux";
-import { FaPlus } from "react-icons/fa"
-import AddContact from "./AddContact";
+import { FaPlus } from "react-icons/fa";
+//import AddContact from "./AddContact";
+import { Link } from "react-router-dom";
 
-import {
+/*import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
-  
+  */
 
 class AddContactButton extends React.Component {
     addContact = () => {
         let testContact = {
-            firstName: 'TestFirstName',
-            lastName: 'TestLastName',
-            number: 11111,
+            fullName: 'TestFirstName TestLastName',
+            numbers: [{
+                work: 12345,
+            }],
+            email: 'testfirstname.testlastname@gmail.com',
             age: 111,
-            isFavorite: true
+            isFavorite: true,
+            id: 12345678
         }
         addContactAction(testContact);
     }
 
     render(){
         return(
-            <button id="add-contact" onClick={this.addContact}>
-                <FaPlus />
-                <div>Add new contact</div>
-            </button>
+        <Link id="add-contact" to="/addcontact" onClick={this.addContact}>
+            <div>
+                <FaPlus/>
+                <div>Add new</div>
+            </div>
+        </Link>
         )
     }
 }
