@@ -15,7 +15,7 @@ export const countCharacter = (character, word) => {
 }
 
 export const fullNameConditional = (fullName) => {
-    let includesNumber = false;
+    var includesNumber = false;
     for(let i = 0; i<fullName.length; i++){
         if(fullName.charCodeAt(i) >= 48 && fullName.charCodeAt(i) <= 57)
             includesNumber = true
@@ -25,16 +25,16 @@ export const fullNameConditional = (fullName) => {
 
 // Calculate if numbers array has empty slots
 export const numbersConditional = (numbers) => {
-    let emptyNumbers = false;
+    var emptyNumbers = false;
     for(let i = 0; i<numbers.length; i++){
         if(numbers[i].key === '' || numbers[i].value === '' || calculateCharCodeKey(numbers[i].key) || calculateCharCodeValue(numbers[i].value))
             emptyNumbers = true;
     }
-    return !emptyNumbers;
+    return emptyNumbers;
 }
 
 export const calculateCharCodeKey = (key) => {
-    let includesOnlyLetters = true;
+    var includesOnlyLetters = true;
     for(let i = 0; i < key.length; i++){
         if((key.charCodeAt(i) < 65 || key.charCodeAt(i) > 90) && (key.charCodeAt(i) < 97 || key.charCodeAt(i) > 122))
             includesOnlyLetters = false;

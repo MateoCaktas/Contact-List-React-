@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import { FaSearch } from "react-icons/fa";
 import EditContact from "./Components/EditContact";
 import AddContact from "./Components/AddContact";
-//import SearchBar from "./Components/SearchBar";
 
 import {
   BrowserRouter as Router,
@@ -37,22 +36,6 @@ export default class App extends React.Component {
         <Router>
           <Header/>
           <div>
-           {/* <nav>
-              <ul className="menu-items">
-                <div>                  
-                  <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
-                </div>
-                <div>
-                  <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>
-                </div>
-              </ul>
-            </nav>
-    
-            <hr className="horizontal-line"/>*/}
-
-
-            {/*<SearchBar search={this.state.search}/>*/}
-            
             {/* A <Switch> looks through its children <Route>s and
                 renders the first one that matches the current URL. */}
 
@@ -62,6 +45,9 @@ export default class App extends React.Component {
               <ul className="menu-items">
                 <div>                  
                   <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
+                </div>
+                <div className="vertical-line">
+                  |
                 </div>
                 <div>
                   <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>
@@ -88,6 +74,9 @@ export default class App extends React.Component {
               <ul className="menu-items">
                 <div>                  
                   <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
+                </div>
+                <div className="vertical-line">
+                  |
                 </div>
                 <div>
                   <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>

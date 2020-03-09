@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { AiOutlineUpload } from "react-icons/ai";
-import { FaIoxhost, FaPhone } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoMdArrowBack, IoIosAddCircleOutline } from "react-icons/io";
 import { MdPersonOutline } from "react-icons/md";
@@ -30,7 +30,7 @@ class AddContact extends React.Component {
     }
     componentDidUpdate(){
     // added !this.state.conditionsMet to avoid "Maximum depth exceeded" -> This results in a behaviour that is not 100% wanted
-       if(emailConditional(this.state.email) && fullNameConditional(this.state.fullName) && numbersConditional(this.state.numbers) && !this.state.conditionsMet){       
+        if(emailConditional(this.state.email) && fullNameConditional(this.state.fullName) && numbersConditional(this.state.numbers) && !this.state.conditionsMet){
             this.setState({
                 conditionsMet: true
             })
@@ -99,10 +99,11 @@ class AddContact extends React.Component {
 
         return( 
             <form className="edit-user-info">
-                <img className="specific-contact-image" src={userImage} alt="contact-profile"></img>
-                
+                <div className="image-container-2">
+                <img className="edit-contact-image" src={userImage} alt="contact-profile"></img>
+                </div>
                 <div className="edit-user-info-details">
-                    <div className="edit-user-info-header">
+                    <div className="add-user-info-header">
                         <Link style={{color: '#80cbc4'}} to={this.state.link}>
                             <IoMdArrowBack style={{width: '30px', height:'auto'}}></IoMdArrowBack>
                         </Link>

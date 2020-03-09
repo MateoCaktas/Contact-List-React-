@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ContactItem from './ContactItem';
-import EditContact from "./EditContact";
 class Favorites extends React.Component {  
     componentDidMount(){
     }

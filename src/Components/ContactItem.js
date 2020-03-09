@@ -1,6 +1,4 @@
 import React from "react"
-/*import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faHeart, faTrash } from '@fortawesome/free-solid-svg-icons'*/
 import { connect } from "react-redux";
 import { changeFavoriteAction } from "../redux/actions";
 import { FaHeart, FaTrashAlt, FaRegHeart, FaPencilAlt } from "react-icons/fa";
@@ -33,6 +31,12 @@ class ContactItem extends React.Component {
         })
     }
     
+    removeModal = () => {
+        this.setState({
+            delete: false
+        })
+    }
+
     render(){
         console.log('inside render contactitem')
         console.log(this.props.contact);
@@ -62,7 +66,7 @@ class ContactItem extends React.Component {
                         link: this.props.link
                     }
                 }}
-                style={{wordBreak: 'break-all'}}>
+                style={{wordBreak: 'break-all', overflow:'hidden'}}>
                     {fullName}
                 </Link>
 
@@ -78,7 +82,7 @@ class ContactItem extends React.Component {
                 <FaTrashAlt className="icon icon-trash-bin" onClick={() => this.deleteContact(this.state.id)} style={{color: "#9ca4ab"}}/>
             </div>{
             this.state.delete ? 
-            <DeleteModal active={this.state.delete} contact={this.props.contact} style={{position: 'fixed', margin: 'auto'}}></DeleteModal> : null
+            <DeleteModal removeModal={this.removeModal} active={this.state.delete} contact={this.props.contact} style={{position: 'fixed', margin: 'auto'}}></DeleteModal> : null
             }
         </div>
         )

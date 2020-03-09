@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { AiOutlineUpload } from "react-icons/ai";
-import { FaIoxhost, FaPhone } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoMdArrowBack, IoIosAddCircleOutline } from "react-icons/io";
 import { MdPersonOutline } from "react-icons/md";
@@ -109,11 +109,11 @@ class EditContact extends React.Component {
     }
 
     render(){
-
         return( 
             <form className="edit-user-info">
-                <img className="specific-contact-image" src={userImage} alt="contact-profile"></img>
-                
+                <div className="image-container-2">
+                <img className="edit-contact-image" src={userImage} alt="contact-profile"></img>
+                </div>
                 <div className="edit-user-info-details">
                     <div className="edit-user-info-header">
                         <Link style={{color: '#80cbc4'}} to={this.props.location.state.link}>

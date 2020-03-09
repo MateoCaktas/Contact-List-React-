@@ -32,7 +32,9 @@ class DisplayContact extends React.Component {
 
         return(
         <div className="specific-contact-profile-container">
+            <div className="image-container">
             <img className="specific-contact-image" src={userImage} alt="contact-profile"></img>
+            </div>
             <div className="specific-contact-info">
                 {/* Header above the outline */}
                 <div className="specific-contact-header">
@@ -64,24 +66,22 @@ class DisplayContact extends React.Component {
                     { /* email */}               
                     <div className="specific-contact-email">
                         <AiOutlineMail className="icon-mail"/>
-                        <div className="text-icon-mail">
-                            <div className="second-column-number">email</div>
-                            <div className="third-column-number">{email}</div>
-                        </div>
+                            <span className="subgroup">email</span>
+                        <div className="third-column-number">{email}</div>
                     </div>
                     { /* phone */}
                     <div className="specific-contact-number">
                         <FiPhone className="icon-phone"/>
+                        <span className="subgroup">numbers</span>
                         <div className="contact-numbers">
-                        
                         {
                         numbers.map(number =>{
                             return(
                                 <div className="number-info" key={number.key}>
                                     <div className="second-column-number">{number.key}</div>
-                                    <div className="third-column-number">{number.value}</div>
+                                    <div className="number-value">{number.value}</div>
                                 </div>
-                        )})    
+                        )})
                     }      
                         </div>                  
                     </div>                    
