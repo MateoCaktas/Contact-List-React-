@@ -6,6 +6,7 @@ import Header from "./Components/Header";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import { FaSearch } from "react-icons/fa";
+import EditContact from "./Components/EditContact";
 import AddContact from "./Components/AddContact";
 //import SearchBar from "./Components/SearchBar";
 
@@ -36,8 +37,29 @@ export default class App extends React.Component {
         <Router>
           <Header/>
           <div>
-            <nav>
-              <ul className="ul-style">
+           {/* <nav>
+              <ul className="menu-items">
+                <div>                  
+                  <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
+                </div>
+                <div>
+                  <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>
+                </div>
+              </ul>
+            </nav>
+    
+            <hr className="horizontal-line"/>*/}
+
+
+            {/*<SearchBar search={this.state.search}/>*/}
+            
+            {/* A <Switch> looks through its children <Route>s and
+                renders the first one that matches the current URL. */}
+
+            <Switch>
+              <Route path="/favorites">
+              <nav>
+              <ul className="menu-items">
                 <div>                  
                   <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
                 </div>
@@ -48,14 +70,6 @@ export default class App extends React.Component {
             </nav>
     
             <hr className="horizontal-line"/>
-            {/*<SearchBar search={this.state.search}/>*/}
-            
-            {/* A <Switch> looks through its children <Route>s and
-                renders the first one that matches the current URL. */}
-
-            <Switch>
-              
-              <Route path="/favorites">
               <div className="search-bar">
                   <FaSearch className="search-icon"></FaSearch>
                   <input className="search-input-field" type="text" value={this.state.search} onChange={this.handleChange}></input>
@@ -64,10 +78,24 @@ export default class App extends React.Component {
               </Route>
               <Route path="/individualContact/:id" render={(props) => <DisplayContact {...props} />}>
               </Route>
+              <Route path="/editcontact/:id" render={(props) => <EditContact {...props} />}>
+              </Route>
               <Route path="/addcontact">
                 <AddContact/>
               </Route>
               <Route path="/">
+              <nav>
+              <ul className="menu-items">
+                <div>                  
+                  <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
+                </div>
+                <div>
+                  <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>
+                </div>
+              </ul>
+            </nav>
+    
+            <hr className="horizontal-line"/>
                 <div className="search-bar">
                   <FaSearch className="search-icon"></FaSearch>
                   <input className="search-input-field" type="text" value={this.state.search} onChange={this.handleChange}></input>

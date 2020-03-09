@@ -28,25 +28,7 @@ class DisplayContact extends React.Component {
     }
 
     render(){
-        //let { contactFullName, contactNumber } = this.props.location;
         let { fullName, numbers, email } = this.props.location.state.contact;
-        console.log(numbers);
-        
-        for(const number in numbers){
-            if(numbers[number].home)
-                console.log(numbers[number].home);
-            else if(numbers[number].work)
-                console.log(numbers[number].work);
-        }
-
-    
-      /*  for(let [key, value] of Object.entries(numbers)){
-            console.log(`${key} with value ${value}`);
-            console.log(value);
-        }*/
-
-        /*{(this.props.location.isFavorite ? <FaHeart className="icon specific-icon-heart"/>
-        : <FaRegHeart className="icon specific-icon-heart" />)}*/
 
         return(
         <div className="specific-contact-profile-container">
@@ -65,8 +47,15 @@ class DisplayContact extends React.Component {
                             (this.state.isFavorite ? <FaHeart className="icon specific-icon-heart" onClick={()=> this.changeFavorite(this.state.id)} style={{float:'right',color: "#80cbc4"}}/>
                             : <FaRegHeart className="icon specific-icon-heart" onClick={()=> this.changeFavorite(this.state.id)} style={{float:'right', color: "#9ca4ab"}}/>)
                         }
-                        <Link to="/">
-                            <FaPencilAlt className="icon specific-icon-pencil"></FaPencilAlt>
+                        <Link to={{
+                            pathname: `/editcontact/${this.state.id}`,
+                            state: {
+                                contact: this.props.location.state.contact,
+                                link: this.props.location.state.link
+                                }
+                            }} className="pencil-link">
+
+                            <FaPencilAlt className="icon specific-icon-pencil"/>
                         </Link>
                     </div>
                 </div>
@@ -84,26 +73,15 @@ class DisplayContact extends React.Component {
                     <div className="specific-contact-number">
                         <FiPhone className="icon-phone"/>
                         <div className="contact-numbers">
+                        
                         {
-                        numbers.map(number =>{                             
-                             if(number.home){
-                                return (
-                                <div className="number-info" key={number.home}>
-                                    <div className="second-column-number">Home</div>
-                                    <div className="third-column-number">{number.home}</div>
+                        numbers.map(number =>{
+                            return(
+                                <div className="number-info" key={number.key}>
+                                    <div className="second-column-number">{number.key}</div>
+                                    <div className="third-column-number">{number.value}</div>
                                 </div>
-                                )
-                            }
-                            else if(number.work){
-                                return (
-                                <div className="number-info" key={number.work}>
-                                    <div className="second-column-number">Work</div>
-                                    <div className="third-column-number">{number.work}</div>
-                                </div>
-                                )
-                            }
-                            return null;
-                        })          
+                        )})    
                     }      
                         </div>                  
                     </div>                    

@@ -8,29 +8,41 @@ import { IoMdArrowBack, IoIosAddCircleOutline } from "react-icons/io";
 import { MdPersonOutline } from "react-icons/md";
 import userImage from "../User_Circle.png";
 import { TiDeleteOutline } from "react-icons/ti";
-import { addContactAction } from "../redux/actions";
 import { emailConditional, fullNameConditional, numbersConditional } from "./Conditions";
+import { editContactAction } from "../redux/actions";
 
-class AddContact extends React.Component {
+class EditContact extends React.Component {
     constructor(props){
         super(props);
 
         this.state = {
             fullName: '',
             age: 0,
+            key: '',
+            value:0,
             numbers: [],
             email: '',
             isFavorite: false,
             id: 0,
-            link: '/',
+            link: '',
             conditionsMet: false
         }
     }
     componentDidMount(){
+            let { fullName, age, email,numbers, isFavorite, id } = this.props.location.state.contact;
+            let { link } = this.props.location.state.link;
+            this.setState({
+                fullName,
+                age,
+                email,
+                numbers,
+                isFavorite,
+                id,
+                link
+            })
     }
-    componentDidUpdate(){
-    // added !this.state.conditionsMet to avoid "Maximum depth exceeded" -> This results in a behaviour that is not 100% wanted
-       if(emailConditional(this.state.email) && fullNameConditional(this.state.fullName) && numbersConditional(this.state.numbers) && !this.state.conditionsMet){       
+    componentDidUpdate(){ 
+        if(emailConditional(this.state.email) && fullNameConditional(this.state.fullName) && numbersConditional(this.state.numbers) && !this.state.conditionsMet){       
             this.setState({
                 conditionsMet: true
             })
@@ -44,7 +56,7 @@ class AddContact extends React.Component {
     }
 
     onSubmit = () => {
-        let contact = {
+        let contact = {            
             fullName: this.state.fullName,
             age: this.state.age,
             numbers: this.state.numbers,
@@ -52,7 +64,7 @@ class AddContact extends React.Component {
             isFavorite: this.state.isFavorite,
             id: this.state.id
         }
-        addContactAction(contact);
+        editContactAction(contact);
     }
 
     deleteNumber = (keyWord) => {
@@ -95,6 +107,7 @@ class AddContact extends React.Component {
         
         return false;
     }
+
     render(){
 
         return( 
@@ -103,7 +116,7 @@ class AddContact extends React.Component {
                 
                 <div className="edit-user-info-details">
                     <div className="edit-user-info-header">
-                        <Link style={{color: '#80cbc4'}} to={this.state.link}>
+                        <Link style={{color: '#80cbc4'}} to={this.props.location.state.link}>
                             <IoMdArrowBack style={{width: '30px', height:'auto'}}></IoMdArrowBack>
                         </Link>
                     </div>
@@ -141,11 +154,11 @@ class AddContact extends React.Component {
                         {
                             this.state.numbers.map((number,index) => {
                                 return (
-                                     <div className="edit-user-number-input" key={index}>                                       
+                                    <div className="edit-user-number-input" key={index}>                                       
                                         <input className="edit-user-number-key-input"
                                             name={number.key}
                                             placeholder='Type of number'
-                                            value={number.key}
+                                            value={this.state.numbers[index].key}
                                             onChange={this.onChangeNumberKey(index)}/>
 
                                         <input className="edit-user-number-value-input"
@@ -155,7 +168,7 @@ class AddContact extends React.Component {
                                             onChange={this.onChangeNumberValue(index)}/>
 
                                         <TiDeleteOutline onClick={() => this.deleteNumber(number.key)} className="icon-delete-number"></TiDeleteOutline>
-                                </div>                                
+                                    </div>
                                 )
                             })
                         }
@@ -165,10 +178,10 @@ class AddContact extends React.Component {
                         </div>
                     </div>
                     <div className="edit-user-info-buttons">
-                        <Link to={`${this.state.link}`}>
+                        <Link to={`${this.props.location.state.link}`}>
                             <button className="edit-user-info-button">Cancel</button>
                         </Link>
-                        <Link to={`${this.state.link}`}>
+                        <Link to={`${this.props.location.state.link}`}>
                             <button disabled={!this.state.conditionsMet} className="edit-user-info-button edit-user-save" onClick={this.onSubmit}>Save</button>
                         </Link>
                     </div>
@@ -179,4 +192,4 @@ class AddContact extends React.Component {
     }
 }
 
-export default connect()(AddContact);
+export default connect()(EditContact);

@@ -3,9 +3,11 @@
         "fullName":"Test Testić",
         "age":20,
         "numbers":[{
-            "home":12345
+            "key":"home",
+            "value":12345
             },{
-            "work":1234567
+            "key":"work",
+            "value":1234567
             }
         ],
         "email":"test.testic@gmail.com",
@@ -16,9 +18,11 @@
         "fullName":"NotATest NotATestić",
         "age":25,
         "numbers":[{
-            "home":54321
+            "key":"home",
+            "value":54321
             },{
-            "work":5432111
+            "key":"work",
+            "value":5432111
             }
         ],
         "email":"notatest.notatestic@gmail.com",
@@ -29,9 +33,11 @@
         "fullName":"Hmm Hmmić",
         "age":17,
         "numbers":[{
-            "home":55555
+            "key":"home",
+            "value":55555
             },{
-            "work":5555511
+            "key":"work",
+            "value":5555511
             }
         ],
         "email":"hmm.hmmic@gmail.com",
@@ -42,9 +48,11 @@
         "fullName":"YesTest YesATestić",
         "age":26,
         "numbers":[{
-            "home":33333
+            "key":"home",
+            "value":33333
             },{
-            "work":3333311
+            "key":"work",
+            "value":3333311
             }
         ],
         "email":"yestest.yesatestic@gmail.com",
@@ -55,9 +63,11 @@
         "fullName":"Netko Novi",
         "age":15,
         "numbers":[{
-            "home":44444
+            "key":"home",
+            "value":44444
             },{
-            "work":4444411
+            "key":"work",
+            "value":4444411
             }
         ],
         "email":"netko.novi@gmail.com",
@@ -68,9 +78,11 @@
         "fullName":"Šesti Šestić",
         "age":6,
         "numbers":[{
-            "home":666666
+            "key":"home",
+            "value":666666
             },{
-            "work":666666111
+            "key":"work",
+            "value":666666111
             }
         ],
         "email":"sesti.sestic@gmail.com",
@@ -81,9 +93,11 @@
         "fullName":"Sedmi Sedmić",
         "age":7,
         "numbers":[{
-            "home":77777
+            "key":"home",
+            "value":77777
             },{
-            "work":7777111
+            "key":"work",
+            "value":7777111
             }
         ],        
         "email":"sedmi.sedmic@gmail.com",
@@ -94,9 +108,11 @@
         "fullName":"Osmi Osmić",
         "age":8,
         "numbers":[{
-            "home":88888
+            "key":"home",
+            "value":88888
             },{
-            "work":88888111
+            "key":"work",
+            "value":88888111
             }
         ],        
         "email":"osmi.osmic@gmail.com",
@@ -107,9 +123,11 @@
         "fullName":"Deveti Dević",
         "age":9,
         "numbers":[{
-            "home":999999
+            "key":"home",
+            "value":999999
             },{
-            "work":999991111
+            "key":"work",
+            "value":999991111
             }
         ],        
         "email":"deveti.devic@gmail.com",

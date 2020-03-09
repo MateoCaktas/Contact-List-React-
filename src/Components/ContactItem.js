@@ -12,8 +12,8 @@ class ContactItem extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            id: props.contact.id,
-            isFavorite: props.contact.isFavorite,
+            id: this.props.contact.id,
+            isFavorite: this.props.contact.isFavorite,
             delete: false
         }
     }
@@ -23,7 +23,6 @@ class ContactItem extends React.Component {
         this.setState({
             delete: true
         })
-        console.log(this.state.delete);
     }
 
     changeFavorite = (id) => {
@@ -35,6 +34,8 @@ class ContactItem extends React.Component {
     }
     
     render(){
+        console.log('inside render contactitem')
+        console.log(this.props.contact);
         let fullName = this.props.contact.fullName;
 
         return(
@@ -57,14 +58,23 @@ class ContactItem extends React.Component {
                 <Link className="contact-full-name" to={{
                     pathname: `/individualcontact/${this.props.contact.id}`,
                     state: {
-                    contact: this.props.contact,
-                    link: this.props.link
+                        contact: this.props.contact,
+                        link: this.props.link
                     }
                 }}
                 style={{wordBreak: 'break-all'}}>
                     {fullName}
                 </Link>
-                <FaPencilAlt className="icon icon-pencil" style={{color: "#9ca4ab"}}/>
+
+                <Link to={{
+                    pathname: `/editcontact/${this.props.contact.id}`,
+                    state: {
+                        contact: this.props.contact,
+                        link: this.props.link
+                    }
+                    }} className="pencil-link">
+                    <FaPencilAlt className="icon icon-pencil" style={{color: "#9ca4ab"}}/>
+                </Link>
                 <FaTrashAlt className="icon icon-trash-bin" onClick={() => this.deleteContact(this.state.id)} style={{color: "#9ca4ab"}}/>
             </div>{
             this.state.delete ? 

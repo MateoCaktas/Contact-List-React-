@@ -3,7 +3,7 @@ import Contact from "./ContactItem";
 import { connect } from "react-redux";
 import { addContactAction } from "../redux/actions";
 import AddContactButton from "./AddContactButton";
-import AddContact from "./AddContact";
+import EditContact from "./EditContact";
 class ContactsComponent extends React.Component {
     /*state = {
         search: ''
@@ -31,8 +31,7 @@ class ContactsComponent extends React.Component {
          //Filter contacts by first name or last name
         let filteredContacts = this.props.allContacts.filter(Contact => Contact.fullName.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1);
 
-         return(             
-             <div>
+         return(        
                 <div className="contacts">
                     <AddContactButton/>
                     {
@@ -46,7 +45,7 @@ class ContactsComponent extends React.Component {
                         ))*/
                     }
                 </div>
-            </div>
+           
          )
      }
 }

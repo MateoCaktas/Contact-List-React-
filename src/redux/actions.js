@@ -1,7 +1,8 @@
 import { 
     ADD_CONTACT,
     DELETE_CONTACT,
-    CHANGE_FAVORITE
+    CHANGE_FAVORITE,
+    EDIT_CONTACT
 } from "./types"
 
 import store from "./store"
@@ -23,5 +24,12 @@ export const changeFavoriteAction = (id) => (
     store.dispatch({
         type: CHANGE_FAVORITE,
         payload: id
+    })
+)
+
+export const editContactAction = (Contact) => (
+    store.dispatch({
+        type: EDIT_CONTACT,
+        payload: Contact
     })
 )

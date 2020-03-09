@@ -30,7 +30,7 @@ class AddContactButton extends React.Component {
 
     render(){
         return(
-        <Link id="add-contact" to="/addcontact" onClick={this.addContact}>
+        <Link id="add-contact" to="/addcontact">
             <div>
                 <FaPlus/>
                 <div>Add new</div>

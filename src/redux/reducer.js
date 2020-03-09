@@ -3,7 +3,8 @@ import Contacts from "../Contacts.json";
 import {
     ADD_CONTACT,
     DELETE_CONTACT,
-    CHANGE_FAVORITE
+    CHANGE_FAVORITE,
+    EDIT_CONTACT
 } from "./types";
 
 const initialState = {
@@ -11,8 +12,7 @@ const initialState = {
     currentContact: {}
 };
 
-export default function reducer(state = initialState, action){    
-    console.log(action);
+export default function reducer(state = initialState, action){
     const { payload } = action;
     switch(action.type){
         case ADD_CONTACT:
@@ -27,11 +27,17 @@ export default function reducer(state = initialState, action){
                 ...state
             }
         case DELETE_CONTACT:
-            console.log(payload);
             let leftContacts = state.allContacts.filter(item => item.id !== payload);
             return {
                 ...state,
                 allContacts: leftContacts
+            }
+        case EDIT_CONTACT:
+            let contacts = state.allContacts.filter(item => item.id !== payload.id);
+            contacts.unshift(payload);
+            return {
+                ...state,
+                allContacts: contacts
             }
         default:
             return state;   
