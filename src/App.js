@@ -41,50 +41,53 @@ export default class App extends React.Component {
 
             <Switch>
               <Route path="/favorites">
-              <nav>
-              <ul className="menu-items">
-                <div>                  
-                  <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
-                </div>
-                <div className="vertical-line">
-                  |
-                </div>
-                <div>
-                  <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>
-                </div>
-              </ul>
-            </nav>
+                <nav>
+                  <ul className="menu-items">
+                    <div>                  
+                      <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
+                    </div>
+                    <div className="vertical-line">
+                      |
+                    </div>
+                    <div>
+                      <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>
+                    </div>
+                  </ul>
+                </nav>
     
-            <hr className="horizontal-line"/>
-              <div className="search-bar">
-                  <FaSearch className="search-icon"></FaSearch>
-                  <input className="search-input-field" type="text" value={this.state.search} onChange={this.handleChange}></input>
-                </div>
+                <hr className="horizontal-line"/>
+                  <div className="search-bar">
+                    <FaSearch className="search-icon"></FaSearch>
+                    <input className="search-input-field" type="text" value={this.state.search} onChange={this.handleChange}></input>
+                  </div>
                 <Favorites search={this.state.search}/>
               </Route>
+              
               <Route path="/individualContact/:id" render={(props) => <DisplayContact {...props} />}>
               </Route>
+
               <Route path="/editcontact/:id" render={(props) => <EditContact {...props} />}>
               </Route>
+
               <Route path="/addcontact">
                 <AddContact/>
               </Route>
               <Route path="/">
-              <nav>
-              <ul className="menu-items">
-                <div>                  
-                  <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
-                </div>
-                <div className="vertical-line">
-                  |
-                </div>
-                <div>
-                  <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>
-                </div>
-              </ul>
-            </nav>
+                <nav>
+                  <ul className="menu-items">
+                    <div>                  
+                      <NavLink className="link" activeClassName="link-active" exact to="/">All contacts</NavLink>
+                    </div>
+                    <div className="vertical-line">
+                      |
+                    </div>
+                    <div>
+                      <NavLink className="link" activeClassName="link-active" to="/favorites">Favorites</NavLink>
+                    </div>
+                  </ul>
+                </nav>
     
-            <hr className="horizontal-line"/>
+                <hr className="horizontal-line"/>
                 <div className="search-bar">
                   <FaSearch className="search-icon"></FaSearch>
                   <input className="search-input-field" type="text" value={this.state.search} onChange={this.handleChange}></input>

@@ -111,7 +111,7 @@ ul div:not(:last-child):after{
   margin: 20px auto;
   width: 50%;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 3px;
   overflow: hidden;
 }
 
@@ -315,7 +315,7 @@ ul div:not(:last-child):after{
   align-self: center;
 }
 .contact-numbers {
-  grid-column: 2;
+  grid-column: 3;
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -388,7 +388,7 @@ ul div:not(:last-child):after{
 .edit-user-fullname-input{
   width:50%;
   padding: 0.5rem 0rem 0.5rem 0.5rem;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid grey;
 }
 
@@ -409,7 +409,7 @@ ul div:not(:last-child):after{
 .edit-user-email-input {
   width:50%;
   padding: 0.5rem 0rem 0.5rem 0.5rem;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid grey;
 }
 
@@ -421,7 +421,7 @@ ul div:not(:last-child):after{
 .edit-user-number-key-input,
 .edit-user-number-value-input{
   padding: 0.5rem 0rem 0.5rem 0.5rem;
-  border-radius: 5px;
+  border-radius: 3px;
   border: 1px solid grey;
 }
 .edit-user-number-key-input{
@@ -591,6 +591,7 @@ height: auto;
     grid-column: 5;
     margin: auto;
   }
+
   .delete-window-content{
     width: 80%;
     margin-top: 150px;
@@ -711,7 +712,7 @@ height: auto;
     bottom: 140px;
   }
   .add-user-info-header{
-    bottom: 120px;
+    bottom: 130px;
   }
 
   .edit-user-fullname,
@@ -738,7 +739,7 @@ height: auto;
     display:flex;
     justify-content: center;
     padding-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   .edit-contact-image{
@@ -752,5 +753,10 @@ height: auto;
   .edit-user-fullname-input,
   .edit-user-email-input{
     width: 97%;
+  }
+
+  .specific-icon-pencil,
+  .specific-icon-heart{
+    margin-right: 10px;
   }
 }

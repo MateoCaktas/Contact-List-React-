@@ -27,8 +27,9 @@ export const fullNameConditional = (fullName) => {
 export const numbersConditional = (numbers) => {
     var emptyNumbers = false;
     for(let i = 0; i<numbers.length; i++){
-        if(numbers[i].key === '' || numbers[i].value === '' || calculateCharCodeKey(numbers[i].key) || calculateCharCodeValue(numbers[i].value))
+        if((numbers[i].key !== '' && numbers[i].value !== '') || calculateCharCodeKey(numbers[i].key) || calculateCharCodeValue(numbers[i].value)){
             emptyNumbers = true;
+        }
     }
     return emptyNumbers;
 }
@@ -39,8 +40,6 @@ export const calculateCharCodeKey = (key) => {
         if((key.charCodeAt(i) < 65 || key.charCodeAt(i) > 90) && (key.charCodeAt(i) < 97 || key.charCodeAt(i) > 122))
             includesOnlyLetters = false;
     }
-    console.log('includes only letters');
-    console.log(includesOnlyLetters);
     return !includesOnlyLetters;
 }
 
@@ -50,8 +49,6 @@ export const calculateCharCodeValue = (value) => {
     for(let i = 0; i<value.length;i++){
         if(value.charCodeAt(i) < 48 || value.charCodeAt(i) > 57)
             includesOnlyNumbers = false;
-    }  
-    console.log('includes only numbers');
-    console.log(includesOnlyNumbers);
+    }
     return !includesOnlyNumbers;
 }

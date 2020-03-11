@@ -16,7 +16,7 @@ class ContactsComponent extends React.Component {
                     <AddContactButton/>
                     {
                         filteredContacts.map(item => (
-                            <Contact className="contact" key={item.id} contact={item} link={'/'}/>
+                            <Contact className="contact" key={item.email} contact={item} link={'/'}/>
                         ))
                     }              
                 </div>

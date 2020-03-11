@@ -1,17 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ContactItem from './ContactItem';
-class Favorites extends React.Component {  
+class Favorites extends React.Component {
     componentDidMount(){
+        
     }
 
     componentDidUpdate(){
     }
 
     render(){
-        //Filter Contacts either by name or last name
-        let filteredContacts = this.props.allContacts.filter(Contact => Contact.fullName.indexOf(this.props.search) !== -1)
+        console.log(this.props.search);
+        //Filter Contacts by full name
+        let filteredContacts = this.props.allContacts.filter(Contact => Contact.fullName.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1)
        
+        console.log(filteredContacts);
         //Filter only the favorited results
         let favoriteContacts = filteredContacts.filter(item => item.isFavorite === true);
 
@@ -19,7 +22,7 @@ class Favorites extends React.Component {
             <div className="contacts">
                 {
                     favoriteContacts.map(item =>{
-                        return <ContactItem className="contact" key={item.id} contact={item} link={'/favorites'}/>
+                        return <ContactItem className="contact" key={item.email} contact={item} link={'/favorites'}/>
                     })                                     
                 }
 
