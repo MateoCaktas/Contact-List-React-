@@ -1,10 +1,9 @@
 import React from "react";
-import userImage from "../User_Circle.png"
 import { FaHeart, FaPencilAlt, FaRegHeart } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoMdArrowBack } from "react-icons/io";
 import { FiPhone } from "react-icons/fi";
-import { changeFavoriteAction } from "../redux/actions";
+import { changeFavoriteAction } from "../../redux/actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -13,14 +12,14 @@ class DisplayContact extends React.Component {
         super(props);
 
         this.state = {
-            id:this.props.location.state.contact.id,
+            email:this.props.location.state.contact.email,
             isFavorite: this.props.location.state.contact.isFavorite,
             urlHistory: this.props.location.state.link
         }
     }
 
-    changeFavorite = (id) => {
-        changeFavoriteAction(id);
+    changeFavorite = (email) => {
+        changeFavoriteAction(email);
     
         this.setState({
             isFavorite: this.props.location.state.contact.isFavorite
@@ -28,12 +27,12 @@ class DisplayContact extends React.Component {
     }
 
     render(){
-        let { fullName, numbers, email } = this.props.location.state.contact;
+        let { fullName, numbers, email, imagePath } = this.props.location.state.contact;
 
         return(
         <div className="specific-contact-profile-container">
             <div className="image-container">
-            <img className="specific-contact-image" src={userImage} alt="contact-profile"></img>
+            <img className="specific-contact-image" src={require(`../../Images/${imagePath}`)} alt="contact-profile"></img>
             </div>
             <div className="specific-contact-info">
                 {/* Header above the outline */}
@@ -46,11 +45,11 @@ class DisplayContact extends React.Component {
                     </div>
                     <div className="specific-header-icons" >
                         {
-                            (this.state.isFavorite ? <FaHeart className="icon specific-icon-heart" onClick={()=> this.changeFavorite(this.state.id)} style={{float:'right',color: "#80cbc4"}}/>
-                            : <FaRegHeart className="icon specific-icon-heart" onClick={()=> this.changeFavorite(this.state.id)} style={{float:'right', color: "#9ca4ab"}}/>)
+                            (this.state.isFavorite ? <FaHeart className="icon specific-icon-heart" onClick={()=> this.changeFavorite(this.state.email)} style={{float:'right',color: "#80cbc4"}}/>
+                            : <FaRegHeart className="icon specific-icon-heart" onClick={()=> this.changeFavorite(this.state.email)} style={{float:'right', color: "#9ca4ab"}}/>)
                         }
                         <Link to={{
-                            pathname: `/editcontact/${this.state.id}`,
+                            pathname: `/editcontact/${this.state.email}`,
                             state: {
                                 contact: this.props.location.state.contact,
                                 link: this.props.location.state.link

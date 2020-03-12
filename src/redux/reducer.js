@@ -21,19 +21,19 @@ export default function reducer(state = initialState, action){
                 allContacts: [payload,...state.allContacts]
             }
         case CHANGE_FAVORITE:
-            state.allContacts.map(item => item.id === payload ?
+            state.allContacts.map(item => item.email === payload ?
                      item.isFavorite = !item.isFavorite : item);
             return {
                 ...state
             }
         case DELETE_CONTACT:
-            let leftContacts = state.allContacts.filter(item => item.id !== payload);
+            let leftContacts = state.allContacts.filter(item => item.email !== payload);
             return {
                 ...state,
                 allContacts: leftContacts
             }
         case EDIT_CONTACT:
-            let contacts = state.allContacts.filter(item => item.id !== payload.id);
+            let contacts = state.allContacts.filter(item => item.email !== payload.email);
             contacts.unshift(payload);
             return {
                 ...state,

@@ -1,7 +1,6 @@
 [
     {
         "fullName":"Test Testić",
-        "age":20,
         "numbers":[{
             "key":"home",
             "value":12345
@@ -12,11 +11,11 @@
         ],
         "email":"test.testic@gmail.com",
         "isFavorite": true,
-        "id":1
+        "id":1,
+        "imagePath":"user-image.png"
     },
     {
         "fullName":"NotATest NotATestić",
-        "age":25,
         "numbers":[{
             "key":"home",
             "value":54321
@@ -27,11 +26,11 @@
         ],
         "email":"notatest.notatestic@gmail.com",
         "isFavorite": true,
-        "id":2
+        "id":2,
+        "imagePath":"user-image2.png"
     },
     {
         "fullName":"Hmm Hmmić",
-        "age":17,
         "numbers":[{
             "key":"home",
             "value":55555
@@ -42,11 +41,11 @@
         ],
         "email":"hmm.hmmic@gmail.com",
         "isFavorite": false,
-        "id":3
+        "id":3,
+        "imagePath":"user-image3.png"
     },
     {
         "fullName":"YesTest YesATestić",
-        "age":26,
         "numbers":[{
             "key":"home",
             "value":33333
@@ -57,11 +56,11 @@
         ],
         "email":"yestest.yesatestic@gmail.com",
         "isFavorite": false,
-        "id":4
+        "id":4,
+        "imagePath":"user-image.png"
     },
     {
         "fullName":"Netko Novi",
-        "age":15,
         "numbers":[{
             "key":"home",
             "value":44444
@@ -72,11 +71,11 @@
         ],
         "email":"netko.novi@gmail.com",
         "isFavorite": false,
-        "id":5
+        "id":5,
+        "imagePath":"user-image3.png"
     },
     {
         "fullName":"Šesti Šestić",
-        "age":6,
         "numbers":[{
             "key":"home",
             "value":666666
@@ -87,11 +86,11 @@
         ],
         "email":"sesti.sestic@gmail.com",
         "isFavorite": false,
-        "id":6
+        "id":6,
+        "imagePath":"user-image4.png"
     },
     {
         "fullName":"Sedmi Sedmić",
-        "age":7,
         "numbers":[{
             "key":"home",
             "value":77777
@@ -102,11 +101,11 @@
         ],        
         "email":"sedmi.sedmic@gmail.com",
         "isFavorite": false,
-        "id":7
+        "id":7,
+        "imagePath":"user-image2.png"
     },
     {
         "fullName":"Osmi Osmić",
-        "age":8,
         "numbers":[{
             "key":"home",
             "value":88888
@@ -117,11 +116,11 @@
         ],        
         "email":"osmi.osmic@gmail.com",
         "isFavorite": false,
-        "id":8
+        "id":8,
+        "imagePath":"user-image4.png"
     },
     {
         "fullName":"Deveti Dević",
-        "age":9,
         "numbers":[{
             "key":"home",
             "value":999999
@@ -132,6 +131,7 @@
         ],        
         "email":"deveti.devic@gmail.com",
         "isFavorite": false,
-        "id":9
+        "id":9,
+        "imagePath":"user-image5.png"
     }
 ]

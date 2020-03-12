@@ -10,9 +10,8 @@ class DeleteModal extends React.Component {
         }
     }
 
-    deleteContact = (id) => {
-        console.log(this.props.contact.id);
-        deleteContactAction(id);
+    deleteContact = (email) => {
+        deleteContactAction(email);
     }
 
     removeWindow = () => {
@@ -34,7 +33,7 @@ class DeleteModal extends React.Component {
                         <div className="delete-window-header">Delete {this.props.contact.fullName}?</div>
                         <div className="delete-window-text">Are you sure you want to delete this contact?</div>
                         <div className="delete-modal-position-buttons">
-                            <button className="accept-button" onClick={() => this.deleteContact(this.props.contact.id)}>Delete</button>
+                            <button className="accept-button" onClick={() => this.deleteContact(this.props.contact.email)}>Delete</button>
                             <button className="cancel-button" onClick={this.removeWindow}>Cancel</button>
                         </div>
                     </div>) 

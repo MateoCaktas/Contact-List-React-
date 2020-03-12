@@ -87,6 +87,12 @@ ul div:not(:last-child):after{
   overflow: hidden;
 }
 
+.contact-image,
+.specific-contact-image,
+.edit-contact-image{
+  border-radius: 50%;
+}
+
 .contact-image{
   max-width: 100px;
   width: 100%;
@@ -467,15 +473,25 @@ ul div:not(:last-child):after{
 
 .edit-user-info-button{
   border-radius: 25px;
-  border: 2px solid var(--main-color);
   height:50px;
   width: 150px;
+  color:white;
+}
+
+.edit-user-cancel{
+  background-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
 }
 .edit-user-save{
   float: right;
-  background-color: var(--main-color)
+  background-color: var(--main-color);
+  border: 2px solid var(--main-color);
 }
 
+.edit-user-save:disabled{
+  background-color: grey;
+  border: 2px solid grey;
+}
 .edit-contact-image{
 width: 100%;
 height: auto;   
@@ -548,7 +564,7 @@ height: auto;
     width: 95%;
     grid-template-columns: 1fr;
     margin:auto;
-    grid-gap: 5px;
+    grid-gap: 10px;
   }
 
   .contact{
@@ -712,14 +728,14 @@ height: auto;
     bottom: 140px;
   }
   .add-user-info-header{
-    bottom: 130px;
+    bottom: 120px;
   }
 
   .edit-user-fullname,
   .edit-user-email,
   .edit-user-numbers,
   .edit-user-info-buttons{
-    margin-top:5px;
+    margin-top:10px;
     margin-bottom:5px;
     width: 90%;
     margin-left: auto;

@@ -1,15 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { AiOutlineUpload } from "react-icons/ai";
 import { FaPhone } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoMdArrowBack, IoIosAddCircleOutline } from "react-icons/io";
 import { MdPersonOutline } from "react-icons/md";
-import userImage from "../User_Circle.png";
+import userImage from "../../Images/User_Circle.png";
 import { TiDeleteOutline } from "react-icons/ti";
-import { addContactAction } from "../redux/actions";
-import { emailConditional, fullNameConditional, numbersConditional } from "./Conditions";
+import { addContactAction } from "../../redux/actions";
+import { emailConditional, fullNameConditional, numbersConditional } from "../Conditions";
 
 class AddContact extends React.Component {
     constructor(props){
@@ -17,11 +16,10 @@ class AddContact extends React.Component {
 
         this.state = {
             fullName: '',
-            age: 0,
             numbers: [],
             email: '',
+            imagePath: 'User_Circle.png',
             isFavorite: false,
-            id: 0,
             link: '/',
             conditionsMet: false
         }
@@ -46,11 +44,10 @@ class AddContact extends React.Component {
     onSubmit = () => {
         let contact = {
             fullName: this.state.fullName,
-            age: this.state.age,
             numbers: this.state.numbers,
             email: this.state.email,
             isFavorite: this.state.isFavorite,
-            id: this.state.id
+            imagePath: this.state.imagePath
         }
         addContactAction(contact);
     }
@@ -167,7 +164,7 @@ class AddContact extends React.Component {
                     </div>
                     <div className="edit-user-info-buttons">
                         <Link to={`${this.state.link}`}>
-                            <button className="edit-user-info-button">Cancel</button>
+                            <button className="edit-user-info-button edit-user-cancel">Cancel</button>
                         </Link>
                         <Link to={`${this.state.link}`}>
                             <button disabled={!this.state.conditionsMet} className="edit-user-info-button edit-user-save" onClick={this.onSubmit}>Save</button>

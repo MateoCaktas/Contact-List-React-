@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import Favorites from "./Components/Favorites";
-import ContactsComponent from "./Components/Contacts";
+import Favorites from "./Components/Contacts/Favorites";
+import ContactsComponent from "./Components/Contacts/Contacts";
 import Header from "./Components/Header";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import { FaSearch } from "react-icons/fa";
-import EditContact from "./Components/EditContact";
-import AddContact from "./Components/AddContact";
+import EditContact from "./Components/Contacts/EditContact";
+import AddContact from "./Components/Contacts/AddContact";
 
 import {
   BrowserRouter as Router,
@@ -15,7 +15,7 @@ import {
   Route,
   NavLink
 } from "react-router-dom";
-import DisplayContact from './Components/DisplayContact';
+import DisplayContact from './Components/Contacts/DisplayContact';
 
 export default class App extends React.Component {
   constructor(){

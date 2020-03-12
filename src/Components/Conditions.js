@@ -27,7 +27,7 @@ export const fullNameConditional = (fullName) => {
 export const numbersConditional = (numbers) => {
     var emptyNumbers = false;
     for(let i = 0; i<numbers.length; i++){
-        if((numbers[i].key !== '' && numbers[i].value !== '') || calculateCharCodeKey(numbers[i].key) || calculateCharCodeValue(numbers[i].value)){
+        if((numbers[i].key !== '' && numbers[i].value !== '') || (calculateCharCodeKey(numbers[i].key) && calculateCharCodeValue(numbers[i].value))){
             emptyNumbers = true;
         }
     }

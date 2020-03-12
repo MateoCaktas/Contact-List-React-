@@ -1,30 +1,28 @@
 import React from "react"
 import { connect } from "react-redux";
-import { changeFavoriteAction } from "../redux/actions";
+import { changeFavoriteAction } from "../../redux/actions";
 import { FaHeart, FaTrashAlt, FaRegHeart, FaPencilAlt } from "react-icons/fa";
-import userImage from "../User_Circle.png";
-import DeleteModal from "./DeleteModal";
+import DeleteModal from "../DeleteModal";
 import { Link } from "react-router-dom";
 
 class ContactItem extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            id: this.props.contact.id,
+            email: this.props.contact.email,
             isFavorite: this.props.contact.isFavorite,
             delete: false
         }
     }
 
-    deleteContact = (id) => {
-        //deleteContactAction(id);
+    deleteContact = () => {
         this.setState({
             delete: true
         })
     }
 
-    changeFavorite = (id) => {
-        changeFavoriteAction(id);
+    changeFavorite = (email) => {
+        changeFavoriteAction(email);
         
         this.setState({
             isFavorite: this.props.contact.isFavorite
@@ -38,29 +36,29 @@ class ContactItem extends React.Component {
     }
 
     render(){
-        console.log('inside render contactitem')
-        console.log(this.props.contact);
         let fullName = this.props.contact.fullName;
+        
+        console.log(this.props.contact);
 
         return(
         <div>
         
             <div className="contact">
                 {
-                    (this.state.isFavorite ? <FaHeart className="icon icon-heart" onClick={()=> this.changeFavorite(this.state.id)} style={{color: "#80cbc4"}}/>
-                    : <FaRegHeart className="icon icon-heart" onClick={()=> this.changeFavorite(this.state.id)} style={{color: "#9ca4ab"}}/>)
+                    (this.state.isFavorite ? <FaHeart className="icon icon-heart" onClick={()=> this.changeFavorite(this.state.email)} style={{color: "#80cbc4"}}/>
+                    : <FaRegHeart className="icon icon-heart" onClick={()=> this.changeFavorite(this.state.email)} style={{color: "#9ca4ab"}}/>)
                 }            
                 <Link className="contact-image" to={{
-                    pathname: `/individualcontact/${this.props.contact.id}`,
+                    pathname: `/individualcontact/${this.props.contact.email}`,
                     state: { 
                     contact: this.props.contact,
                     link: this.props.link
                     }
                 }}>
-                    <img className="contact-image" src={userImage} alt="contact-profile"></img>
+                    <img className="contact-image" src={require(`../../Images/${this.props.contact.imagePath}`)} alt="contact-profile"></img>
                 </Link>
                 <Link className="contact-full-name" to={{
-                    pathname: `/individualcontact/${this.props.contact.id}`,
+                    pathname: `/individualcontact/${this.props.contact.email}`,
                     state: {
                         contact: this.props.contact,
                         link: this.props.link
@@ -71,7 +69,7 @@ class ContactItem extends React.Component {
                 </Link>
 
                 <Link to={{
-                    pathname: `/editcontact/${this.props.contact.id}`,
+                    pathname: `/editcontact/${this.props.contact.email}`,
                     state: {
                         contact: this.props.contact,
                         link: this.props.link
@@ -79,7 +77,7 @@ class ContactItem extends React.Component {
                     }} className="pencil-link">
                     <FaPencilAlt className="icon icon-pencil" style={{color: "#9ca4ab"}}/>
                 </Link>
-                <FaTrashAlt className="icon icon-trash-bin" onClick={() => this.deleteContact(this.state.id)} style={{color: "#9ca4ab"}}/>
+                <FaTrashAlt className="icon icon-trash-bin" onClick={this.deleteContact} style={{color: "#9ca4ab"}}/>
             </div>{
             this.state.delete ? 
             <DeleteModal removeModal={this.removeModal} active={this.state.delete} contact={this.props.contact} style={{position: 'fixed', margin: 'auto'}}></DeleteModal> : null

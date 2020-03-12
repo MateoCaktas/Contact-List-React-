@@ -1,15 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { AiOutlineUpload } from "react-icons/ai";
 import { FaPhone } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoMdArrowBack, IoIosAddCircleOutline } from "react-icons/io";
 import { MdPersonOutline } from "react-icons/md";
-import userImage from "../User_Circle.png";
 import { TiDeleteOutline } from "react-icons/ti";
-import { emailConditional, fullNameConditional, numbersConditional } from "./Conditions";
-import { editContactAction } from "../redux/actions";
+import { emailConditional, fullNameConditional, numbersConditional } from "../Conditions";
+import { editContactAction } from "../../redux/actions";
 
 class EditContact extends React.Component {
     constructor(props){
@@ -17,7 +15,6 @@ class EditContact extends React.Component {
 
         this.state = {
             fullName: '',
-            age: 0,
             key: '',
             value:0,
             numbers: [],
@@ -25,23 +22,24 @@ class EditContact extends React.Component {
             isFavorite: false,
             id: 0,
             link: '',
+            imagePath: '',
             conditionsMet: false
         }
     }
     componentDidMount(){
-            let { fullName, age, email,numbers, isFavorite, id } = this.props.location.state.contact;
+            let { fullName, email,numbers, isFavorite, id, imagePath } = this.props.location.state.contact;
             let { link } = this.props.location.state.link;
             this.setState({
                 fullName,
-                age,
                 email,
                 numbers,
                 isFavorite,
                 id,
-                link
+                link,
+                imagePath
             })
     }
-    componentDidUpdate(){ 
+    componentDidUpdate(){
         if(emailConditional(this.state.email) && fullNameConditional(this.state.fullName) && numbersConditional(this.state.numbers) && !this.state.conditionsMet){       
             this.setState({
                 conditionsMet: true
@@ -58,9 +56,9 @@ class EditContact extends React.Component {
     onSubmit = () => {
         let contact = {            
             fullName: this.state.fullName,
-            age: this.state.age,
             numbers: this.state.numbers,
             email: this.state.email,
+            imagePath: this.state.imagePath,
             isFavorite: this.state.isFavorite,
             id: this.state.id
         }
@@ -109,10 +107,11 @@ class EditContact extends React.Component {
     }
 
     render(){
+        let { imagePath } = this.props.location.state.contact;
         return( 
             <form className="edit-user-info">
                 <div className="image-container-2">
-                <img className="edit-contact-image" src={userImage} alt="contact-profile"></img>
+                <img className="edit-contact-image" src={require(`../../Images/${imagePath}`)} alt="contact-profile"></img>
                 </div>
                 <div className="edit-user-info-details">
                     <div className="edit-user-info-header">
@@ -179,7 +178,7 @@ class EditContact extends React.Component {
                     </div>
                     <div className="edit-user-info-buttons">
                         <Link to={`${this.props.location.state.link}`}>
-                            <button className="edit-user-info-button">Cancel</button>
+                            <button className="edit-user-info-button edit-user-cancel">Cancel</button>
                         </Link>
                         <Link to={`${this.props.location.state.link}`}>
                             <button disabled={!this.state.conditionsMet} className="edit-user-info-button edit-user-save" onClick={this.onSubmit}>Save</button>
