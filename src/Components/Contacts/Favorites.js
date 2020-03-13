@@ -10,11 +10,9 @@ class Favorites extends React.Component {
     }
 
     render(){
-        console.log(this.props.search);
         //Filter Contacts by full name
         let filteredContacts = this.props.allContacts.filter(Contact => Contact.fullName.toLowerCase().indexOf(this.props.search.toLowerCase()) !== -1)
        
-        console.log(filteredContacts);
         //Filter only the favorited results
         let favoriteContacts = filteredContacts.filter(item => item.isFavorite === true);
 

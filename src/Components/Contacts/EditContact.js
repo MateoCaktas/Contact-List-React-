@@ -20,21 +20,19 @@ class EditContact extends React.Component {
             numbers: [],
             email: '',
             isFavorite: false,
-            id: 0,
             link: '',
             imagePath: '',
             conditionsMet: false
         }
     }
     componentDidMount(){
-            let { fullName, email,numbers, isFavorite, id, imagePath } = this.props.location.state.contact;
+            let { fullName, email,numbers, isFavorite, imagePath } = this.props.location.state.contact;
             let { link } = this.props.location.state.link;
             this.setState({
                 fullName,
                 email,
                 numbers,
                 isFavorite,
-                id,
                 link,
                 imagePath
             })
@@ -59,8 +57,7 @@ class EditContact extends React.Component {
             numbers: this.state.numbers,
             email: this.state.email,
             imagePath: this.state.imagePath,
-            isFavorite: this.state.isFavorite,
-            id: this.state.id
+            isFavorite: this.state.isFavorite
         }
         editContactAction(contact);
     }

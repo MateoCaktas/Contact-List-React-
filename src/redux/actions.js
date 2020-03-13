@@ -13,17 +13,17 @@ export const addContactAction = (Contact) => (
     })
 )
 
-export const deleteContactAction = (id) => (
+export const deleteContactAction = (email) => (
     store.dispatch({
         type: DELETE_CONTACT,
-        payload: id
+        payload: email
     })
 )
 
-export const changeFavoriteAction = (id) => (
+export const changeFavoriteAction = (email) => (
     store.dispatch({
         type: CHANGE_FAVORITE,
-        payload: id
+        payload: email
     })
 )
 

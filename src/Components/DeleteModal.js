@@ -15,7 +15,6 @@ class DeleteModal extends React.Component {
     }
 
     removeWindow = () => {
-        console.log(this.state.active)
         this.setState({
             active: !this.props.active,
             visibilityState: 'none'
@@ -24,7 +23,6 @@ class DeleteModal extends React.Component {
     }
 
     render(){
-        console.log(this.props.contact);
         return(
             <div className="delete-window" style={{display: `${this.state.visibilityState}`}}>
             {

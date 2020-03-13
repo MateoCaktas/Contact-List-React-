@@ -38,8 +38,6 @@ class ContactItem extends React.Component {
     render(){
         let fullName = this.props.contact.fullName;
         
-        console.log(this.props.contact);
-
         return(
         <div>
         
